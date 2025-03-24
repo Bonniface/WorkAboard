@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horizon International | Find Your Dream Job Abroad</title>
+    <style>
+        :root {
+            --primary: #1a6bb3;
+            --secondary: #f8a01d;
+            --light: #f0f8ff;
+            --dark: #28374c;
+            --success: #4caf50;
+            --white: #ffffff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/api/placeholder/1200/600') center/cover no-repeat;
+            color: var(--white);
+            padding: 1.5rem;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .btn {
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn:hover {
+            background-color: #e89100;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--white);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary);
+        }
+        
+        .hero {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 800px;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        section {
+            padding: 5rem 2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .section-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .destinations {
+            background-color: var(--light);
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .card-content p {
+            margin-bottom: 1rem;
+        }
+        
+        .process {
+            background-color: var(--white);
+        }
+        
+        .step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .step-number {
+            background-color: var(--primary);
+            color: var(--white);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .step-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .testimonials {
+            background-color: var(--light);
+        }
+        
+        .testimonial {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            margin-right: 1rem;
+        }
+        
+        .testimonial-author-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .pricing {
+            background-color: var(--white);
+        }
+        
+        .price-card {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .price-card h3 {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .price span {
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+        
+        .features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .features li:last-child {
+            border-bottom: none;
+        }
+        
+        .featured {
+            border: 2px solid var(--secondary);
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .featured::before {
+            content: "Most Popular";
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: var(--secondary);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .cta {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('/api/placeholder/1200/600') center/cover no-repeat;
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 3rem 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--white);
+            text-decoration: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--secondary);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .step {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .step-number {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Horizon<span>International</span></div>
+            <ul class="nav-links">
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#process">How It Works</a></li>
+                <li><a href="#testimonials">Success Stories</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="hero">
+            <h1>Your Journey to International Career Success Starts Here</h1>
+            <p>Discover exciting work opportunities abroad with personalized guidance every step of the way. From application to relocation, we've got you covered.</p>
+            <div class="hero-buttons">
+                <a href="#destinations" class="btn">Explore Destinations</a>
+                <a href="#contact" class="btn btn-outline">Get Free Consultation</a>
+            </div>
+        </div>
+    </header>
+    
+    <section class="destinations" id="destinations">
+        <div class="container">
+            <div class="section-header">
+                <h2>Popular Destinations</h2>
+                <p>Explore exciting career opportunities in these sought-after countries with thriving job markets for international professionals.</p>
+            </div>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="card-image" style="background-image: url('/api/placeholder/400/300');"></div>
+                    <div class="card-content">
+                        <h3>Australia</h3>
+                        <p>High demand for skilled workers in healthcare, IT, engineering, and hospitality with excellent work-life balance.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-image" style="background-image: url('/api/placeholder/400/300');"></div>
+                    <div class="card-content">
+                        <h3>Canada</h3>
+                        <p>Abundant opportunities in tech, healthcare, and construction with pathways to permanent residency.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-image" style="background-image: url('/api/placeholder/400/300');"></div>
+                    <div class="card-content">
+                        <h3>United Arab Emirates</h3>
+                        <p>Tax-free income in finance, hospitality, and engineering sectors with modern infrastructure.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="process" id="process">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Our proven 4-step process makes finding international work opportunities simple, efficient, and stress-free.</p>
+            </div>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Free Consultation</h3>
+                        <p>Schedule a call with our expert advisors to discuss your skills, experience, and career goals. We'll help you identify the best international opportunities tailored to your profile.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Personalized Job Search</h3>
+                        <p>Our team leverages our extensive network of employers worldwide to find positions matching your qualifications. We prepare and optimize your applications to increase your chances of success.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Visa & Documentation</h3>
+                        <p>Once you secure a job offer, we guide you through the visa application process, work permits, and all necessary paperwork. Our specialists ensure everything is completed correctly and efficiently.</p>
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Relocation Support</h3>
+                        <p>We provide comprehensive assistance with accommodation, banking, transportation, and cultural integration to ensure a smooth transition to your new country and workplace.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>Success Stories</h2>
+                <p>Don't just take our word for it. Hear from professionals who transformed their careers with our help.</p>
+            </div>
+            
+            <div class="card-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">"Horizon International made my dream of working in Canada a reality. From helping me find the perfect job to guiding me through the visa process, they were with me every step of the way. I couldn't have done it without their expertise!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-image" style="background-image: url('/api/placeholder/100/100');"></div>
+                        <div class="testimonial-author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p>Marketing Specialist, Toronto</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">"After struggling to find international opportunities on my own, I turned to Horizon. Within 2 months, I had multiple job offers in Australia. Their connections and knowledge of the local job market made all the difference."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-image" style="background-image: url('/api/placeholder/100/100');"></div>
+                        <div class="testimonial-author-info">
+                            <h4>Miguel Ramirez</h4>
+                            <p>Software Engineer, Sydney</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <p class="testimonial-text">"The relocation support was invaluable. From finding an apartment to setting up banking, Horizon made my transition to Dubai seamless. I'm now enjoying a tax-free salary and an amazing lifestyle!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-author-image" style="background-image: url('/api/placeholder/100/100');"></div>
+                        <div class="testimonial-author-info">
+                            <h4>Emily Chen</h4>
+                            <p>Financial Analyst, Dubai</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Investment in Your Future</h2>
+                <p>Choose the package that best suits your needs and budget. Our success-based approach means you only pay the full fee when we deliver results.</p>
+            </div>
+            
+            <div class="card-grid">
+                <div class="card price-card">
+                    <h3>Essential</h3>
+                    <div class="price">$799 <span>one-time fee</span></div>
+                    <ul class="features">
+                        <li>Job search in 1 country</li>
+                        <li>CV optimization</li>
+                        <li>5 job applications</li>
+                        <li>Basic visa guidance</li>
+                        <li>30-day support</li>
+                    </ul>
+                    <a href="#contact" class="btn">Get Started</a>
+                </div>
+                
+                <div class="card price-card featured">
+                    <h3>Professional</h3>
+                    <div class="price">$1,499 <span>one-time fee</span></div>
+                    <ul class="features">
+                        <li>Job search in 3 countries</li>
+                        <li>CV and LinkedIn optimization</li>
+                        <li>Unlimited job applications</li>
+                        <li>Interview preparation</li>
+                        <li>Complete visa assistance</li>
+                        <li>90-day support</li>
+                        <li>Basic relocation assistance</li>
+                    </ul>
+                    <a href="#contact" class="btn">Get Started</a>
+                </div>
+                
+                <div class="card price-card">
+                    <h3>Premium</h3>
+                    <div class="price">$2,499 <span>one-time fee</span></div>
+                    <ul class="features">
+                        <li>Global job search</li>
+                        <li>Complete profile optimization</li>
+                        <li>Unlimited job applications</li>
+                        <li>Personalized interview coaching</li>
+                        <li>Priority visa processing</li>
+                        <li>6-month support</li>
+                        <li>Comprehensive relocation package</li>
+                        <li>Cultural integration training</li>
+                    </ul>
+                    <a href="#contact" class="btn">Get Started</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta" id="contact">
+        <div class="container">
+            <h2>Ready to Start Your International Career?</h2>
+            <p>Book your free consultation today and take the first step toward your dream job abroad. Our experts are ready to guide you through the entire process.</p>
+            <a href="#" class="btn">Schedule Free Consultation</a>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Horizon International</h3>
+                    <p>We connect talented professionals with exciting career opportunities worldwide, providing end-to-end support for a seamless transition to working abroad.</p>
+                    <div class="social-links">
+                        <a href="#">FB</a>
+                        <a href="#">TW</a>
+                        <a href="#">IG</a>
+                        <a href="#">LI</a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Popular Destinations</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Australia</a></li>
+                        <li><a href="#">Canada</a></li>
+                        <li><a href="#">United Arab Emirates</a></li>
+                        <li><a href="#">Singapore</a></li>
+                        <li><a href="#">United Kingdom</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Job Search</a></li>
+                        <li><a href="#">Visa Assistance</a></li>
+                        <li><a href="#">Relocation Support</a></li>
+                        <li><a href="#">Career Coaching</a></li>
+                        <li><a href="#">CV Optimization</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li>1234 Global Avenue, Suite 500</li>
+                        <li>New York, NY 10001</li>
+                        <li>contact@horizoninternational.com</li>
+                        <li>+1 (800) 123-4567</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Horizon International. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
